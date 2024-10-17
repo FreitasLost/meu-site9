@@ -1,0 +1,773 @@
+<html><head><base href="https://futuristic-social.app/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Up Booster: Elevate Your Digital Presence</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap');
+
+  :root {
+    --neon-blue: #00f3ff;
+    --deep-blue: #001a33;
+    --metallic-gray: #2c3e50;
+    --pure-white: #ffffff;
+    --accent-purple: #8A2BE2;
+  }
+  
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: linear-gradient(135deg, var(--deep-blue), var(--metallic-gray));
+    color: var(--pure-white);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  header {
+    background-color: rgba(0, 26, 51, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 243, 255, 0.2);
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 1rem 0;
+    margin: 0;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  nav ul li {
+    margin: 0 1rem; /* Reduce horizontal margin slightly */
+  }
+  
+  nav ul li a {
+    color: var(--pure-white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: 1rem; /* Slightly reduce font size */
+    letter-spacing: 0.5px; /* Reduce letter spacing slightly */
+  }
+  
+  nav ul li a:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+  }
+  
+  h1, h2 {
+    color: var(--neon-blue);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    text-shadow: 0 0 10px var(--neon-blue);
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--pure-white);
+    text-shadow: none;
+    margin-top: 0.5rem;
+  }
+  
+  .section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .product-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--neon-blue);
+  }
+  
+  .btn {
+    background-color: var(--neon-blue);
+    color: var(--deep-blue);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+  }
+  
+  .btn:hover {
+    background-color: var(--accent-purple);
+    color: var(--pure-white);
+    box-shadow: 0 0 15px var(--accent-purple);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+    }
+  }
+  
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  .app-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .section-title h2 {
+    margin: 0 1rem;
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--neon-blue);
+  }
+  
+  .product-description {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .quantity-btn {
+    background-color: var(--neon-blue);
+    color: var(--deep-blue);
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .quantity-btn:hover {
+    background-color: var(--accent-purple);
+    color: var(--pure-white);
+  }
+
+  .quantity-input {
+    width: 50px;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    border: 1px solid var(--neon-blue);
+    background-color: var(--deep-blue);
+    color: var(--pure-white);
+    padding: 5px;
+  }
+
+  #cart-icon {
+    position: relative;
+  }
+
+  #cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--accent-purple);
+    color: var(--pure-white);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: var(--deep-blue);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--neon-blue);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--neon-blue);
+  }
+
+  .close {
+    color: var(--neon-blue);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: var(--accent-purple);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #cart-items {
+    margin-bottom: 20px;
+  }
+
+  #cart-total {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  #referral-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #referral-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--neon-blue);
+    background-color: var(--deep-blue);
+    color: var(--pure-white);
+  }
+
+  #other-platforms {
+    text-align: center;
+  }
+
+  .platform-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .platform-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .platform-logo:hover {
+    transform: scale(1.1);
+  }
+
+  #contact-whatsapp {
+    margin-top: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #commission-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  #commission-table th, #commission-table td {
+    border: 1px solid var(--neon-blue);
+    padding: 10px;
+    text-align: left;
+  }
+
+  #commission-table th {
+    background-color: rgba(0, 243, 255, 0.1);
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#tiktok">TikTok</a></li>
+        <li><a href="#revendedor">Revendedor</a></li>
+        <li><a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Up Booster <span class="subtitle">ELEVE SEU PERFIL E IMPULSIONE LIVES!</span></h1>
+    
+    <section id="instagram" class="section">
+      <div class="section-title">
+        <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <linearGradient id="insta-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#405DE6"/>
+            <stop offset="50%" style="stop-color:#5851DB"/>
+            <stop offset="100%" style="stop-color:#833AB4"/>
+          </linearGradient>
+          <path fill="url(#insta-gradient)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+        <h2>Instagram</h2>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <i class="fas fa-users icon"></i>
+          <div class="product-name">Seguidores Brasileiros</div>
+          <p class="product-description">Aumente sua base de seguidores brasileiros e expanda seu alcance</p>
+          <p class="product-price">R$6,00 por 200 seguidores</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Seguidores 🇧🇷', 6, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-heart icon"></i>
+          <div class="product-name">Curtidas Brasileiras</div>
+          <p class="product-description">Impulsione o engajamento dos seus posts com curtidas genuínas</p>
+          <p class="product-price">R$2,00 por 50 curtidas</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Curtidas', 2, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-globe icon"></i>
+          <div class="product-name">Seguidores Mundiais</div>
+          <p class="product-description">Expanda seu alcance global com seguidores de todo o mundo</p>
+          <p class="product-price">R$15,00 por 1000 seguidores</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Seguidores Mundiais 🌎', 15, this)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="youtube" class="section">
+      <div class="section-title">
+        <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path fill="#FF0000" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+        </svg>
+        <h2>YouTube</h2>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <i class="fas fa-thumbs-up icon"></i>
+          <div class="product-name">Curtidas</div>
+          <p class="product-description">Aumente a popularidade dos seus vídeos com curtidas reais em videos/lives/reels</p>
+          <p class="product-price">R$3,00 por 150 curtidas</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Curtidas', 3, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-broadcast-tower icon"></i>
+          <div class="product-name">Lives</div>
+          <p class="product-description">Aumente o alcance das suas transmissões ao vivo no YouTube</p>
+          <p class="product-price">$15,00 por 30 Minutos com 500</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Lives', 15, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-user-plus icon"></i>
+          <div class="product-name">Inscritos</div>
+          <p class="product-description">Expanda sua base de inscritos e cresça seu canal</p>
+          <p class="product-price">R$30,00 por 600 inscritos</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Inscritos', 30, this)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="tiktok" class="section">
+      <div class="section-title">
+        <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <linearGradient id="tiktok-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#00f2ea"/>
+            <stop offset="100%" style="stop-color:#ff0050"/>
+          </linearGradient>
+          <path fill="url(#tiktok-gradient)" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+        </svg>
+        <h2>TikTok</h2>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <i class="fas fa-user-friends icon"></i>
+          <div class="product-name">Seguidores</div>
+          <p class="product-description">Aumente sua presença no TikTok com seguidores ativos(brinde liberação de live)</p>
+          <p class="product-price">R$8,00 por 500 seguidores</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Seguidores', 8, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-heart icon"></i>
+          <div class="product-name">Curtidas</div>
+          <p class="product-description">Impulsione a popularidade dos seus vídeos com curtidas genuínas</p>
+          <p class="product-price">R$5,00 por 550 curtidas</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Curtidas', 5, this)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product-card">
+          <i class="fas fa-comment icon"></i>
+          <div class="product-name">Live</div>
+          <p class="product-description">Aumente o engajamento nas lives com viws reais</p>
+          <p class="product-price">R$8 por 100 comentários</p>
+          <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="1000">
+            <button class="quantity-btn plus">+</button>
+          </div>
+          <button class="btn pulse" onclick="addToCart('Comentários', 8, this)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="other-platforms" class="section">
+      <h2>Personalize sua preferência</h2>
+      <div class="platform-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook logo" class="platform-logo">
+        <img src="https://brand.twitch.tv/assets/logos/svg/glitch/purple.svg" alt="Twitch logo" class="platform-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopee_logo.svg" alt="Shopee logo" class="platform-logo">
+        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord logo" class="platform-logo">
+      </div>
+      <button id="contact-whatsapp" class="btn pulse">Entrar em contato via WhatsApp</button>
+    </section>
+  </div>
+
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Seu Carrinho</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total">Total: R$0</div>
+      <div id="referral-container">
+        <label for="referral-input">Nome do Indicador:</label>
+        <input type="text" id="referral-input" placeholder="Digite o nome do indicador">
+      </div>
+      <button id="checkout-btn" class="btn">Checkout</button>
+    </div>
+  </div>
+
+  <div id="revendedor-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Programa de Revendedor</h2>
+      <p>Como revendedor, você ganha uma comissão de 5% em cada produto vendido.(recebe Imediatamente após um cliente realizar a compra)</p>
+      <table id="commission-table">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Comissão (5%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table rows will be dynamically populated -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartModal = document.getElementById('cart-modal');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartCount = document.getElementById('cart-count');
+
+    function addToCart(name, price, button) {
+      const quantityInput = button.previousElementSibling.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value);
+      cart.push({ name, price, quantity });
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.innerHTML = `${item.name} - $${item.price} x ${item.quantity} <button onclick="removeFromCart(${index})">Remove</button>`;
+        cartItems.appendChild(itemElement);
+        total += item.price * item.quantity;
+      });
+      cartTotal.textContent = `Total: $${total}`;
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    cartIcon.onclick = function() {
+      cartModal.style.display = "block";
+    }
+
+    closeBtn.onclick = function() {
+      cartModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == cartModal) {
+        cartModal.style.display = "none";
+      }
+      if (event.target == revendedorModal) {
+        revendedorModal.style.display = "none";
+      }
+    }
+
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      const whatsappNumber = '5517992095122';
+      const message = formatCartForWhatsApp();
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, '_blank');
+    });
+
+    function formatCartForWhatsApp() {
+      let message = 'Olá! Gostaria de fazer o seguinte pedido:\n\n';
+      let total = 0;
+      
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        message += `${index + 1}. ${item.name} - $${item.price} x ${item.quantity} = $${itemTotal}\n`;
+        total += itemTotal;
+      });
+      
+      message += `\nTotal: R$${total}\n`;
+
+      const referralName = document.getElementById('referral-input').value.trim();
+      if (referralName) {
+        message += `\nIndicado por: ${referralName}\n`;
+      }
+
+      message += '\nPor favor, confirme meu pedido. Obrigado!';
+      return message;
+    }
+
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+          this.classList.remove('clicked');
+        }, 200);
+      });
+    });
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    window.addEventListener('scroll', revealSections);
+
+    function revealSections() {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight * 0.75) {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(50px)';
+      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    revealSections();
+
+    document.querySelectorAll('.quantity-selector').forEach(selector => {
+      const minusBtn = selector.querySelector('.minus');
+      const plusBtn = selector.querySelector('.plus');
+      const input = selector.querySelector('.quantity-input');
+
+      minusBtn.addEventListener('click', () => {
+        const currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+          input.value = currentValue - 1;
+        }
+      });
+
+      plusBtn.addEventListener('click', () => {
+        const currentValue = parseInt(input.value);
+        if (currentValue < 1000) {
+          input.value = currentValue + 1;
+        }
+      });
+
+      input.addEventListener('change', () => {
+        const currentValue = parseInt(input.value);
+        if (currentValue < 1) {
+          input.value = 1;
+        } else if (currentValue > 1000) {
+          input.value = 1000;
+        }
+      });
+    });
+
+    const revendedorLink = document.querySelector('nav a[href="#revendedor"]');
+    const revendedorModal = document.getElementById('revendedor-modal');
+    const revendedorCloseBtn = revendedorModal.querySelector('.close');
+
+    revendedorLink.onclick = function(e) {
+      e.preventDefault();
+      revendedorModal.style.display = "block";
+      populateCommissionTable();
+    }
+
+    revendedorCloseBtn.onclick = function() {
+      revendedorModal.style.display = "none";
+    }
+
+    function populateCommissionTable() {
+      const tableBody = document.querySelector('#commission-table tbody');
+      tableBody.innerHTML = '';
+
+      const products = [
+        { name: 'Seguidores 🇧🇷 (Instagram)', price: 6 },
+        { name: 'Curtidas (Instagram)', price: 2 },
+        { name: 'Seguidores Mundiais 🌎 (Instagram)', price: 15 },
+        { name: 'Curtidas (YouTube)', price: 3 },
+        { name: 'Lives (YouTube)', price: 15 },
+        { name: 'Inscritos (YouTube)', price: 300 },
+        { name: 'Seguidores (TikTok)', price: 8 },
+        { name: 'Curtidas (TikTok)', price: 5 },
+        { name: 'Comentários (TikTok)', price: 8 }
+      ];
+
+      products.forEach(product => {
+        const row = document.createElement('tr');
+        const commission = product.price * 0.05;
+        row.innerHTML = `
+          <td>${product.name}</td>
+          <td>R$${product.price.toFixed(2)}</td>
+          <td>R$${commission.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    document.getElementById('contact-whatsapp').addEventListener('click', function() {
+      const whatsappNumber = '5511999999999';
+      const message = 'Olá! Gostaria de personalizar minha preferência para outras plataformas.';
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, '_blank');
+    });
+  </script>
+</body>
+</html>
